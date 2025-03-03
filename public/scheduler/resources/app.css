@@ -1,0 +1,555 @@
+.b-sch-event {
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+#main {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 100%;
+}
+
+#main .b-resourceheader {
+  height: 100%;
+}
+
+.b-unplannedgrid div[data-column=name] .b-fa {
+  margin-inline-end: 0.5em;
+}
+
+.b-grid-header {
+  height: 57px;
+}
+
+.b-unassigned-class.b-drag-proxy {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+  align-items: center;
+  padding-inline-start: 0.5em;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.b-unassigned-class.b-drag-proxy i {
+  margin-inline-end: 0.5em;
+}
+
+.b-unassigned-class.b-drag-proxy.b-drag-invalid .b-sch-event {
+  background: red;
+}
+
+[data-column=duration] div.b-grid-header-text .b-grid-header-text-content {
+  text-align: center;
+}
+
+[data-column=duration] div.b-grid-header-text .b-grid-header-text-content i {
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.b-sch-tooltip-startdate,
+.b-sch-tooltip-enddate {
+  margin-top: 0.2em;
+}
+
+/*# sourceMappingURL=app.css.map */
+
+/* my-xjg */
+
+ul {
+  list-style-type: none;
+  list-style: none;
+
+}
+
+.order-ul {
+  display: flex;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+/* .order-ul::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: red;
+  margin-top: -6px;
+  margin-left: -30px;
+  position: absolute;
+  z-index: 99;
+} */
+
+.order-ul li {
+  width: 100%;
+  text-align: left;
+  display: flex;
+}
+
+.order-ul li .one {
+  display: inline-block;
+  /* width: 34%; */
+  padding-right: 6px;
+}
+
+.b-grid-cell {
+  padding: 0;
+}
+
+.b-tree-expander {
+  margin: 0 0.3em 0 0;
+}
+
+.b-tree-parent-cell .b-tree-cell-inner {
+  padding-inline-start: 0.5em !important;
+}
+
+.b-tree-cell-inner {
+  padding: 0;
+}
+
+.order-ul .b-icon {
+  margin-right: 4px;
+}
+
+.order-ul .blue {
+  color: #7ad0f4;
+  margin-left: 1px;
+}
+
+.order-ul .purple {
+  color: #9775fa;
+}
+
+.order-ul .green {
+  color: #27ca37;
+}
+
+.order-ul .color177cb0 {
+  color: #177cb0;
+}
+
+.order-ul .colorcca4e3 {
+  color: #cca4e3;
+}
+
+.order-ul .color003472 {
+  color: #758a99;
+}
+
+.b-tree-icon {
+  color: #ffc107
+}
+
+.order-ulNo {
+  /* background-color: red; */
+  margin-left: -20px;
+  /* border: 1px solid red; */
+  height: 100%;
+  color: #999 !important;
+}
+
+.order-ulNo span {
+  color: #999 !important;
+}
+
+.order-ulNo i {
+  color: #999 !important;
+}
+
+.b-tree-parent-row .b-grid-cell {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100% !important;
+}
+
+
+/* .b-grid-row.b-tree-parent-row .b-tree-parent-cell{
+  background: #e9f1f6;
+} */
+
+.b-grid-subgrid-locked .b-grid-row.b-tree-parent-row.b-tree-expanded {
+  background: #e9f1f6;
+}
+
+/* 
+.b-grid-subgrid-locked .b-grid-row.b-tree-parent-row.b-odd {
+  background: red;
+} */
+
+.zydiv {
+  width: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
+  text-align: left !important;
+}
+
+.zydiv i {
+  cursor: pointer;
+}
+
+.zydiv .coloref7a82 {
+  margin-right: 3px;
+  color: #ef7a82;
+  z-index: 9999999;
+}
+
+.zydiv .blue {
+  margin-right: 3px;
+  color: #44cef6;
+  z-index: 9999999;
+
+}
+
+.b-textfield input {
+  padding: 0 !important;
+  padding-left: 4px !important;
+}
+
+.b-toolbar.b-dock-top .b-toolbar-content,
+.b-toolbar.b-dock-bottom .b-toolbar-content {
+  min-height: 0 !important;
+}
+
+.b-button {
+  min-height: 2em;
+}
+
+.num-gren {
+  color: #1E9FFF;
+}
+
+.num-blue {
+  color: #31BDEC;
+}
+
+.num-No {
+  color: #999 !important;
+}
+
+.tag-blue {
+  display: inline-block;
+  background-color: rgb(232, 239, 255);
+  border: 1px solid rgb(139, 174, 255);
+  color: rgb(22, 93, 255);
+  width: 45px;
+  height: 24px;
+  line-height: 23px;
+  text-align: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.tag-purple {
+  display: inline-block;
+  background-color: rgb(251, 232, 251);
+  border: 1px solid rgb(236, 141, 236);
+  color: rgb(217, 26, 217);
+  width: 45px;
+  text-align: center;
+  border-radius: 4px;
+  height: 24px;
+  line-height: 23px;
+  box-sizing: border-box;
+}
+
+
+/* 中间区域 两层模式 */
+.b-sch-event {
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+  align-items: stretch;
+}
+
+.b-sch-event-wrap .b-sch-event .b-sch-event-content {
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  flex: 1;
+}
+
+.b-sch-event-wrap .b-sch-event .b-sch-event-content>* {
+  flex: 1;
+  padding: 0 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+.b-sch-event-wrap .b-sch-event .b-sch-event-content .event-header {
+  display: flex;
+}
+
+.b-sch-event-wrap .b-sch-event .b-sch-event-content .event-body {
+  font-weight: 400;
+  background: rgba(255, 255, 255, 0.9);
+  color: #555;
+}
+
+.b-sch-event-wrap .b-sch-event .b-sch-event-content .event-body .b-fa-arrow-right {
+  margin: 0 0.4em 0 0.4em;
+}
+
+.b-stickyevents.b-sch-horizontal .b-sch-event-wrap:not(.b-disable-sticky) .b-sch-event-content {
+  position: static;
+  overflow: visible;
+}
+
+.b-stickyevents.b-sch-horizontal .b-sch-event-wrap:not(.b-disable-sticky) .b-sch-event-content .event-header,
+.b-stickyevents.b-sch-horizontal .b-sch-event-wrap:not(.b-disable-sticky) .b-sch-event-content .event-body {
+  overflow: visible;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.b-stickyevents.b-sch-horizontal .b-sch-event-wrap:not(.b-disable-sticky) .b-sch-event-content .event-header .event-sticky-content,
+.b-stickyevents.b-sch-horizontal .b-sch-event-wrap:not(.b-disable-sticky) .b-sch-event-content .event-body .event-sticky-content {
+  display: flex;
+  position: sticky;
+  inset-inline-start: 0.75em;
+}
+
+/* ==================== */
+
+/*.b-sch-event-wrap {*/
+/*  overflow: hidden !important;*/
+/*}*/
+
+.autoAPS {
+  color: #fff;
+  cursor: pointer;
+  background-color: #16baaa;
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-size: 1em;
+}
+
+.autoAPSDis {
+  color: #fff;
+  background-color: #ddd;
+  border-radius: 4px;
+  padding: 2px 5px;
+  font-size: 1em;
+  cursor: not-allowed;
+}
+
+.autoAPSDis:hover {
+  color: #fff;
+  background-color: #ddd;
+}
+
+.autoAPS:hover {
+  color: #fff;
+}
+
+/* layer弹框样式 */
+.layui-layer-title {
+  height: 40px;
+  line-height: 40px;
+}
+
+.layui-layer-btn a {
+  border-radius: 6px;
+  height: 26px;
+  line-height: 26px;
+}
+
+/* 表格样式 */
+.tbBox,
+.resinfoTb,
+.apsInfluenceTb,
+.nocompareplanlist {
+  overflow: hidden;
+}
+
+.tbBox table,
+.resinfoTb table,
+.apsInfluenceTb table,
+.nocompareplanlist table {
+  /* width: 100%; */
+  border-spacing: 0;
+  margin: 0 auto;
+  border-collapse: separate;
+  color: #666;
+  table-layout: fixed;
+}
+
+.tbBox table thead tr:nth-child(2n+1),
+.resinfoTb table thead tr:nth-child(2n+1),
+.apsInfluenceTb table thead tr:nth-child(2n+1),
+.nocompareplanlist table thead tr:nth-child(2n+1) {
+  background-color: #FAFAFA;
+}
+
+.tbBox table tr,
+.resinfoTb table tr,
+.apsInfluenceTb table tr,
+.nocompareplanlist table tr {
+  height: 36px;
+  /* line-height: 30px; */
+  font-size: 14px;
+  color: #666666;
+  line-height: 14px;
+  font-weight: 400;
+}
+
+/* .tbBox td {
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: center;
+} */
+
+.tbBox tbody tr:nth-child(even),
+.resinfoTb tbody tr:nth-child(even),
+.apsInfluenceTb tbody tr:nth-child(even),
+.nocompareplanlist tbody tr:nth-child(even) {
+  background-color: antiquewhite;
+}
+
+.tbBox table tr:nth-child(2n),
+.resinfoTb table tr:nth-child(2n),
+.apsInfluenceTb table tr:nth-child(2n),
+.nocompareplanlist table tr:nth-child(2n) {
+  background-color: #FAFAFA;
+}
+
+.tbBox table th,
+.resinfoTb table th,
+.apsInfluenceTb table th,
+.nocompareplanlist table th {
+  font-size: 14px;
+  color: #666666;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.tbBox table td,
+.tbBox table th,
+.resinfoTb table td,
+.resinfoTb table th,
+.apsInfluenceTb table td,
+.apsInfluenceTb table th,
+.nocompareplanlist table td,
+.nocompareplanlist table th {
+  border: 1px solid #eee;
+  border-top: none;
+  border-right: none;
+  padding: 0 5px;
+}
+
+.tbBox table td,
+.resinfoTb table td,
+.apsInfluenceTb table td,
+.nocompareplanlist table td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.tbBox .apsTb,
+.resinfoTb .apsTb,
+.apsInfluenceTb .apsTb,
+.nocompareplanlist .apsTb {
+  height: 99%;
+  overflow: auto;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.apsTbnocompareplanlist {
+  height: 90%;
+  overflow: auto;
+  /* border: 1px solid red; */
+}
+
+.apsTbnocompareplanlist table {
+  width: 100%;
+}
+
+
+/* ==================== */
+
+#divBInsert p {
+  /* border: 1px solid red; */
+  margin-bottom: 15px;
+  padding: 5px;
+  border-left: 5px solid #ffb800;
+  background-color: #FAFAFA;
+}
+
+#divSelect {
+  float: left;
+}
+
+#divSelect select {
+  /* background-color: #f2f2f2; */
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #333;
+  width: 200px;
+  height: 30px;
+  /* border-radius: 5px; */
+}
+
+#divSelect select:hover {
+  background-color: #eaeaea;
+}
+
+#divtextarea {
+  display: flex;
+  float: left;
+  margin-left: 20px;
+
+}
+
+#divtextarea textarea {
+  width: 250px;
+  height: 60px;
+  border: none;
+  border: 1px solid #ccc;
+}
+
+/* 
+#divSelect select:focus {
+  outline: none;
+  border-color: #999;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+} */
+
+
+.tbBox>.apsTbtbBox {
+  overflow: auto;
+  height: 100%;
+}
+
+.layui-layer-content {
+  overflow: hidden !important;
+}
+
+/* .numspan {
+  position: relative;
+} */
+
+/* .numspan:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  left: 0px;
+  top: 30px;
+  border: 1px solid #ccc;
+  background: #f1f7f7;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 99999;
+} */
+
+
+.layui-layer{
+  border: 1px solid red;
+}

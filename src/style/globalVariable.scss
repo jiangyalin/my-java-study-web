@@ -1,0 +1,42 @@
+/*全局变量(覆盖样式表)*/
+.el-form-item__label {
+  --el-text-color-regular: var(--el-text-color-primary);
+}
+
+.el-table thead {
+  --el-table-header-text-color: var(--el-text-color-primary);
+  --el-table-text-color: var(--el-text-color-primary);
+}
+
+
+/*浏览器滚动条*/
+// 滚动条凹槽的颜色，还可以设置边框属性
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+// 滚动条的宽度
+::-webkit-scrollbar {
+  width: var(--m-scrollbar-thumb-width, 5px);
+  height: 9px;
+}
+
+// 滚动条的设置
+::-webkit-scrollbar-thumb {
+  background-color: var(--m-scrollbar-thumb-color);
+  background-clip: padding-box;
+  border-radius: 5px;
+  min-height: 28px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--m-scrollbar-thumb-hover-color);
+}
+
+// element-push 滚动条要是覆盖
+#app .el-scrollbar__bar.is-horizontal {
+  height: var(--m-scrollbar-thumb-width, 5px);
+}
+#app .el-scrollbar__bar.is-vertical {
+  width: var(--m-scrollbar-thumb-width, 5px);
+}

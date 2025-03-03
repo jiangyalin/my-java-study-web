@@ -1,0 +1,363 @@
+{
+  "success": true,
+  "resources": {
+    "rows": [
+      {
+        "name": "00001",
+        "expanded": true,
+        "children": [
+          {
+            "id": 1,
+            "name": "工序1"
+          },
+          {
+            "id": 2,
+            "name": "工序2",
+            "eventColor": "green"
+          },
+          {
+            "id": 3,
+            "name": "工序3",
+            "eventColor": "green"
+          },
+          {
+            "id": 4,
+            "name": "工序4",
+            "eventColor": "red"
+          }
+        ]
+      },
+      {
+        "name": "000002",
+        "expanded": true,
+        "children": [
+          {
+            "id": 5,
+            "name": "工序5",
+            "eventColor": "red"
+          },
+          {
+            "id": 6,
+            "name": "工序6",
+            "eventColor": "red"
+          },
+          {
+            "id": 7,
+            "name": "工序7"
+          },
+          {
+            "id": 8,
+            "name": "工序8"
+          }
+        ]
+      },
+      {
+        "name": "000003",
+        "expanded": true,
+        "children": [
+          {
+            "id": 9,
+            "name": "工序9",
+            "eventColor": "blue"
+          },
+          {
+            "id": 10,
+            "name": "工序10",
+            "eventColor": "blue"
+          },
+          {
+            "id": 11,
+            "name": "工序11"
+          },
+          {
+            "id": 12,
+            "name": "工序12"
+          }
+        ]
+      },
+      {
+        "name": "000002",
+        "expanded": true,
+        "num": 2000,
+        "hh": "002",
+        "cpbm": "C002",
+        "cpmc": "C002",
+        "iconCls": "b-icon b-fa-file",
+        "children": [
+          {
+            "id": 5,
+            "name": "工序5",
+            "eventColor": "red",
+            "num": 500,
+            "hh": "005",
+            "iconCls": "b-icon b-fa-bullseye"
+          },
+          {
+            "id": 6,
+            "name": "工序6",
+            "eventColor": "red",
+            "num": 300,
+            "hh": "006",
+            "iconCls": "b-icon b-fa-bullseye"
+          },
+          {
+            "id": 7,
+            "name": "工序7",
+            "num": 200,
+            "hh": "007",
+            "iconCls": "b-icon b-fa-bullseye"
+          },
+          {
+            "id": 8,
+            "name": "工序8",
+            "num": 1500,
+            "hh": "008",
+            "iconCls": "b-icon b-fa-bullseye"
+          }
+        ]
+      },
+      {
+        "name": "000003",
+        "expanded": true,
+        "num": 1800,
+        "hh": "005",
+        "cpbm": "C003",
+        "iconCls": "b-icon b-fa-file",
+        "cpmc": "C003",
+        "children": [
+          {
+            "id": 9,
+            "name": "工序9",
+            "eventColor": "blue",
+            "num": 800,
+            "hh": "009",
+            "iconCls": "b-icon b-fa-bullseye"
+          },
+          {
+            "id": 10,
+            "name": "工序10",
+            "eventColor": "blue",
+            "num": 100,
+            "hh": "010",
+            "iconCls": "b-icon b-fa-bullseye"
+          },
+          {
+            "id": 11,
+            "name": "工序11",
+            "num": 400,
+            "hh": "011",
+            "iconCls": "b-icon b-fa-bullseye"
+          },
+          {
+            "id": 12,
+            "name": "工序12",
+            "num": 600,
+            "hh": "012",
+            "iconCls": "b-icon b-fa-bullseye"
+          }
+        ]
+      }
+    ]
+  },
+  "calendars": {
+    "rows": [
+      {
+        "id": "1",
+        "text": "压塑车间"
+      },
+      {
+        "id": "2",
+        "text": "冲压件车间"
+      },
+      {
+        "id": "3",
+        "text": "千斤顶车间"
+      }
+    ]
+  },
+  "events": {
+    "rows": [
+      {
+        "id": 1,
+        "name": "Hack server (fixed)",
+        "iconCls": "b-fa b-fa-server",
+        "startDate": "2023-05-08T00:00:00",
+        "duration": 1,
+        "durationUnit": "d",
+        "draggable": false,
+        "resizable": true
+      },
+      {
+        "id": 2,
+        "name": "Cyber attack",
+        "iconCls": "b-fa b-fa-laptop",
+        "startDate": "2023-05-09T00:00:00",
+        "duration": 2,
+        "durationUnit": "d"
+      },
+      {
+        "id": 3,
+        "name": "Port scan",
+        "iconCls": "b-fa b-fa-user",
+        "startDate": "2023-05-09T00:00:00",
+        "duration": 2,
+        "durationUnit": "d"
+      },
+      {
+        "id": 4,
+        "name": "Planning",
+        "iconCls": "b-fa b-fa-users",
+        "startDate": "2023-05-09T00:00:00",
+        "duration": 1,
+        "durationUnit": "d"
+      },
+      {
+        "id": 5,
+        "name": "Enforce firewall",
+        "startDate": "2023-05-09T00:00:00",
+        "iconCls": "b-fa b-fa-server",
+        "duration": 2,
+        "durationUnit": "d"
+      },
+      {
+        "id": 6,
+        "name": "Backup server",
+        "iconCls": "b-fa b-fa-server",
+        "startDate": "2023-05-09T00:00:00",
+        "cls": "Special",
+        "duration": 2,
+        "durationUnit": "d"
+      },
+      {
+        "id": 7,
+        "name": "Presentation",
+        "iconCls": "b-fa b-fa-video",
+        "startDate": "2023-05-11T00:00:00",
+        "cls": "Special",
+        "duration": 2,
+        "durationUnit": "d"
+      },
+      {
+        "id": 21,
+        "name": "Project Black",
+        "duration": 1,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-cog"
+      },
+      {
+        "id": 22,
+        "name": "Project X",
+        "duration": 2,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-cog"
+      },
+      {
+        "id": 23,
+        "name": "X-Mission",
+        "duration": 2,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-user-secret"
+      },
+      {
+        "id": 24,
+        "name": "Installation",
+        "duration": 2,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-circle-check"
+      },
+      {
+        "id": 25,
+        "name": "Meeting X",
+        "duration": 1,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-question"
+      },
+      {
+        "id": 26,
+        "name": "Meeting",
+        "duration": 2,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-user-check"
+      },
+      {
+        "id": 27,
+        "name": "Fly onsite",
+        "duration": 1,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-plane"
+      },
+      {
+        "id": 29,
+        "name": "Book flight",
+        "duration": 2,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-plane"
+      },
+      {
+        "id": 30,
+        "name": "Covert ops",
+        "duration": 2,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-phone"
+      },
+      {
+        "id": 31,
+        "name": "Covert ops",
+        "duration": 1,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-bug"
+      },
+      {
+        "id": 32,
+        "name": "Secret mission",
+        "duration": 1,
+        "durationUnit": "d",
+        "iconCls": "b-fa b-fa-fw b-fa-cog"
+      }
+    ]
+  },
+  "assignments": {
+    "rows": [
+      {
+        "id": 1,
+        "resourceId": 1,
+        "eventId": 1
+      },
+      {
+        "id": 2,
+        "resourceId": 2,
+        "eventId": 2
+      },
+      {
+        "id": 3,
+        "resourceId": 3,
+        "eventId": 3
+      },
+      {
+        "id": 4,
+        "resourceId": 4,
+        "eventId": 4
+      },
+      {
+        "id": 5,
+        "resourceId": 5,
+        "eventId": 5
+      },
+      {
+        "id": 6,
+        "resourceId": 6,
+        "eventId": 6
+      },
+      {
+        "id": 7,
+        "resourceId": 7,
+        "eventId": 7
+      },
+      {
+        "id": 8,
+        "resourceId": 8,
+        "eventId": 8
+      }
+    ]
+  }
+}

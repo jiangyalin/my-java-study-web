@@ -1,0 +1,209 @@
+{
+  "success": true,
+  "resources": {
+    "rows": [
+      {
+        "name": "20230908001",
+        "expanded": true,
+        "num": 1000,
+        "cpbm": "13010278",
+        "cpmc": "底部护板",
+        "hh": "001",
+        "ljh": "1WA804792",
+        "rq": "2023-09-13",
+        "code": "",
+        "children": [
+          {
+            "id": 1,
+            "code": "H00001",
+            "name": "垫圈焊接",
+            "iconCls": "b-icon b-fa-tools",
+            "num": 100,
+            "hh": "0010"
+          },
+          {
+            "id": 2,
+            "name": "工序2",
+            "code": "H00002",
+            "eventColor": "green",
+            "num": 600,
+            "hh": "002",
+            "iconCls": "b-icon b-fa-tools"
+          },
+          {
+            "id": 3,
+            "name": "工序3",
+            "eventColor": "green",
+            "num": 200,
+            "hh": "003",
+            "code": "H00003",
+            "iconCls": "b-icon b-fa-tools"
+          },
+          {
+            "id": 4,
+            "name": "工序4",
+            "eventColor": "red",
+            "num": 100,
+            "hh": "004",
+            "code": "H00004",
+            "iconCls": "b-icon b-fa-tools"
+          }
+        ]
+      },
+      {
+        "name": "20230908002",
+        "expanded": true,
+        "num": 1500,
+        "cpbm": "13012342",
+        "cpmc": "底部护板2",
+        "hh": "001",
+        "ljh": "1WA804792",
+        "rq": "2023-09-13",
+        "code": "",
+        "children": [
+          {
+            "id": 5,
+            "code": "H00001",
+            "name": "垫圈焊接",
+            "iconCls": "b-icon  b-fa-tools",
+            "num": 100,
+            "hh": "0010",
+            "color": "teal"
+          },
+          {
+            "id": 6,
+            "name": "工序2",
+            "code": "H00002",
+            "eventColor": "green",
+            "num": 600,
+            "hh": "002",
+            "iconCls": "b-icon b-fa-tools"
+          },
+          {
+            "id": 7,
+            "name": "工序3",
+            "code": "H00002",
+            "eventColor": "green",
+            "num": 600,
+            "hh": "002",
+            "iconCls": "b-icon b-fa-tools"
+          }
+        ]
+      }
+    ]
+  },
+  "events": {
+    "rows": [
+      {
+        "id": 1,
+        "type": "设备",
+        "draggable": false,
+        "resizable": true,
+        "name": "凸焊机",
+        "code": "Y-0601-01",
+        "model": "TN-200",
+        "iconCls": "b-icon b-fa-chalkboard",
+        "resourceId": 1,
+        "eventColor": "blue"
+      },
+      {
+        "id": 2,
+        "type": "人工",
+        "draggable": false,
+        "resizable": true,
+        "startDate": "2023-09-13T08:00:00.000",
+        "endDate": "2023-09-13T09:30:00.000",
+        "zy": "1000/h",
+        "durationUnit": "d",
+        "name": "焊接组",
+        "code": "QJDHJ001",
+        "model": "",
+        "resourceId": 2,
+        "iconCls": "b-icon b-fa-users"
+      },
+      {
+        "id": 3,
+        "type": "设备",
+        "startDate": "2023-09-13T10:00:00.000",
+        "endDate": "2023-09-13T13:30:00.000",
+        "zy": "1000/h",
+        "durationUnit": "d",
+        "name": "800T",
+        "code": "Y-01",
+        "model": "XP2FCBM-800E",
+        "resourceId": 3,
+        "iconCls": "b-icon b-fa-chalkboard"
+      },
+      {
+        "id": 7,
+        "type": "设备",
+        "startDate": "2023-09-13T14:30:00.000",
+        "endDate": "2023-09-13T16:30:00.000",
+        "zy": "1000/h",
+        "durationUnit": "d",
+        "name": "800T22",
+        "code": "Y-01-22",
+        "draggable": false,
+        "resizable": true,
+        "model": "XP2FCBM-800E",
+        "resourceId": 7,
+        "iconCls": "b-icon b-fa-chalkboard"
+      },
+      {
+        "id": 8,
+        "type": "设备",
+        "startDate": "2023-09-13T16:30:00.000",
+        "endDate": "2023-09-13T19:30:00.000",
+        "zy": "1000/h",
+        "durationUnit": "d",
+        "name": "800T22",
+        "code": "Y-01-22",
+        "draggable": false,
+        "resizable": true,
+        "model": "XP2FCBM-800E",
+        "resourceId": 7,
+        "iconCls": "b-icon b-fa-chalkboard"
+      },
+      {
+        "id": 4,
+        "type": "人工",
+        "startDate": "2023-09-13T13:00:00.000",
+        "endDate": "2023-09-13T18:30:00.000",
+        "zy": "1000/h",
+        "durationUnit": "d",
+        "name": "毛坯1组",
+        "code": "QJDMP1001",
+        "model": "",
+        "resourceId": 4,
+        "iconCls": "b-icon b-fa-users"
+      },
+      {
+        "id": 5,
+        "type": "设备",
+        "durationUnit": "d",
+        "draggable": false,
+        "resizable": true,
+        "name": "630T",
+        "code": "Y-02",
+        "model": "XP2FCBM-800E",
+        "startDate": "2023-09-13T18:00:00.000",
+        "endDate": "2023-09-13T22:30:00.000",
+        "iconCls": "b-icon b-fa-chalkboard"
+      },
+      {
+        "id": 6,
+        "type": "人工",
+        "durationUnit": "d",
+        "draggable": false,
+        "resizable": true,
+        "name": "包装组",
+        "code": "QJDBZ001",
+        "model": "",
+        "resourceId": 6,
+        "startDate": "2023-09-13T18:00:00.000",
+        "endDate": "2023-09-13T22:30:00.000",
+        "iconCls": "b-icon b-fa-users"
+      }
+    ]
+  }
+}
