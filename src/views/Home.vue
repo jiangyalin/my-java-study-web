@@ -1,9 +1,6 @@
 <template>
   <div class="g-home-box">
-    <img
-      class="u-img"
-      src="@/assets/welcome..png"
-    />
+    首页
   </div>
 </template>
 

@@ -7,12 +7,9 @@ import type { RequestFunc } from '../interface/type'
 import { Method } from '../interface/enum'
 import signOut from '@/hook/signOut'
 
-// Axios.defaults.headers.common['Content-Type'] = 'application/json'
-// console.log(Axios.defaults.headers.common)
-
 // 是否存在未关闭的弹窗
 let isExistModal: boolean = false
-const ajax: RequestFunc = (
+const ajax: RequestFunc<any> = (
   { url, method, baseUrl, responseType } = { url: '', method: Method.GET, baseUrl: '', responseType: '' },
   data = { query: {}, body: {}, headers: {} },
   showErrMsg = true
@@ -27,7 +24,7 @@ const ajax: RequestFunc = (
       timeout: 1000 * 50,
       responseType,
       headers: {
-        access_token: Cookies.get('token') // 'Bearer ' +
+        Authorization: 'Bearer ' + Cookies.get('token')
         // ...(data.headers || {})
       }
     })
@@ -35,18 +32,18 @@ const ajax: RequestFunc = (
         if (responseType === 'blob' || responseType === 'arraybuffer') return resolve(res.data)
         res.data.code = Number(res.data.code)
         const code = res.data.code
-        if (code === 401 || code === 1001) {
+        if (code === 401) {
           if (isExistModal) return
           isExistModal = true
-          signOut(res.data.msg || '登录失效，请重新登陆。').then(() => {
+          signOut(res.data.message || '登录失效，请重新登陆。').then(() => {
             isExistModal = false
           })
           return false
         }
 
-        if (code !== 0 && code !== 206 && code !== 204) {
+        if (code !== 200) {
           // 业务异常
-          if (showErrMsg) ElMessage.warning(res.data.msg)
+          if (showErrMsg) ElMessage.warning(res.data.message)
           reject(res.data)
           return false
         }

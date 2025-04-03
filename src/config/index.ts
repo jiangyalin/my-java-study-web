@@ -61,13 +61,13 @@ case 'prod':
   break
 case 'dev':
   config.env = envType.DEV
-  config.serverApi = 'http://192.168.3.35:10203'// http://183.195.216.114:12501
-  config._serverApi = 'http://192.168.3.35:10203' // http://192.168.3.35:10203/
+  config.serverApi = 'http://localhost:8080/'// http://183.195.216.114:12501
+  config._serverApi = 'http://localhost:8080/' // http://192.168.3.35:10203/
   break
 default:
   config.env = envType.DEV
-  config.serverApi = 'http://192.168.0.199:10205'
-  config._serverApi = 'http://192.168.0.199:10205'
+  config.serverApi = 'http://localhost:8080/'
+  config._serverApi = 'http://localhost:8080/'
 }
 
 const getConfig = () => config

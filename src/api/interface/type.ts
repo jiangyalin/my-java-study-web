@@ -17,14 +17,14 @@ export interface ResPage {
   [propName: string]: any,
 }
 
-export interface Parameter {
-  query?: any,
-  body?: any,
-  headers?: any,
-  [propName: string]: any,
+export type Parameter<T> = T & {
+  query?: T;
+  body?: T;
+  path?: any;
+  headers?: Record<string, any>;
 }
 
-export interface RequestFunc {
+export interface RequestFunc<T> {
   (
     api: {
       url: string,
@@ -32,7 +32,7 @@ export interface RequestFunc {
       baseUrl?: string,
       responseType?: string
     },
-    data: Parameter,
+    data: Parameter<T>,
     showErrMsg?: boolean
   ): any,
 }

@@ -4,13 +4,13 @@
     :data-mini-mode="isCollapse"
   >
     <div class="u-logo-box">
-      <el-icon class="u-logo">
-        <img
-          class="u-logo"
-          src="@/assets/logo.svg"
-        />
-      </el-icon>
-      <p class="u-p">上海宝陆</p>
+      <!--<el-icon class="u-logo">-->
+      <!--  <img-->
+      <!--    class="u-logo"-->
+      <!--    src="@/assets/logo.svg"-->
+      <!--  />-->
+      <!--</el-icon>-->
+      <p class="u-p">my-test</p>
     </div>
     <el-menu
       :defaultActive="activeKey"
@@ -40,16 +40,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import bus from '@/tool/bus'
 import Cookies from 'js-cookie'
 import traverseTree from '@/tool/traverseTree'
 import type { MenuItemType } from '@/components/navigate/menuItemType'
-import type { SysuserUserauthdataResType } from '@/api/sysuser'
+import type { RoutesMainChildrenType } from '@/router'
+import { routesMainChildren } from '@/router'
 import MenuItem from '@/components/navigate/MenuItem.vue'
-
-type ApiData = SysuserUserauthdataResType['data']['Menus']
 
 // 激活菜单
 const activeKey = ref('')
@@ -57,58 +56,30 @@ const rawMenu = ref<MenuItemType[]>([])
 const menu = ref<MenuItemType[]>([])
 const route = useRoute()
 
-// const menuPathToIdMap = ref<{ [key: string]: string }>({})
-
-watch(
-  () => route.path,
-  (newPath: string) => {
-    generateMenu(newPath)
-
-    const data = menuPathMap.value[route.path]
-    if (!data?.isHid) activeKey.value = data?.id || ''
-    if (data.isHid) {
-      const code = menuIdMap.value[data.id].code || ''
-      const activeCode = code.substring(code.indexOf('_') + 1)
-      activeKey.value = menuCodeMap.value[activeCode]?.id || ''
-    }
-  }
-)
-
-const generateMenu = (path: string) => {
-  const menuData: ApiData = JSON.parse(localStorage.getItem('menuData') || '[]')
-
-  let appId = ''
-
-  if (!menuData) return
-  traverseTree(menuData, item => {
-    if (item.path === path) appId = item.appId || ''
-  })
-
-  const appMenuData = menuData.filter(item => item.appId === appId)
-
+const generateMenu = () => {
   /**
    * @description 映射树
    * @param tree 树
    * @param isFilter 是否过滤隐藏菜单
    * */
-  const treeMap = (tree: ApiData = [], isFilter: boolean = false): MenuItemType[] => {
-    return tree.filter(item => (!item.isHid || !isFilter) && !item.isBtn).map(item => {
+  const treeMap = (tree: RoutesMainChildrenType = [], isFilter: boolean = false): MenuItemType[] => {
+    return tree.map(item => {
       return {
-        title: item.title || '',
-        id: item.id || '',
-        icon: item.icon || '',
+        title: item.mate.title || '',
+        id: item.name || '',
+        icon: item.mate.icon || '',
         path: item.path || '',
-        name: item.code || '',
-        code: item.code || '',
-        isHid: Boolean(item.isHid),
+        name: item.name || '',
+        code: item.name || '',
+        isHid: false,
         children: item.children ? treeMap(item.children, isFilter) : []
       }
     })
   }
 
-  menu.value = treeMap(appMenuData, true)
+  menu.value = treeMap(routesMainChildren, true)
 
-  rawMenu.value = treeMap(appMenuData)
+  rawMenu.value = treeMap(routesMainChildren)
 }
 
 generateMenu(route.path)
@@ -170,9 +141,10 @@ bus.on('switchMenuMode', (mode) => {
 </script>
 
 <style scoped lang="scss">
+$box-width: 150px;
 .g-menu-box {
-  width: 230px;
-  min-width: 230px;
+  width: $box-width;
+  min-width: $box-width;
   background-color: var(--el-bg-color);
   box-shadow: 2px 0 8px #1d23290d;
 
@@ -202,9 +174,9 @@ bus.on('switchMenuMode', (mode) => {
     //overflow: hidden;
     overflow-y: auto;
     z-index: 1;
-    width: 230px;
+    width: $box-width;
     height: calc(100% - 56px);
-    min-width: 230px;
+    min-width: $box-width;
     border-right: 0;
     //transition: .3s 1s;
   }
