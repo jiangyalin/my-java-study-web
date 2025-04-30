@@ -70,6 +70,9 @@ export interface paths {
     /** 根据id获取用户信息 */
     get: operations['userInfoByIdUsingGET'];
   };
+  '/user/list': {
+    get: operations['userListUsingGET'];
+  };
 }
 
 export interface definitions {
@@ -85,6 +88,12 @@ export interface definitions {
      * @example admin
      */
     username: string;
+  };
+  /** Page«UserListResponseDto» */
+  'Page«UserListResponseDto»': {
+    list?: definitions['UserListResponseDto'][];
+    /** Format: int32 */
+    total?: number | null;
   };
   /** RegisterDto */
   RegisterDto: {
@@ -113,6 +122,13 @@ export interface definitions {
      * @example admin
      */
     username: string;
+  };
+  /** Result«Page«UserListResponseDto»» */
+  'Result«Page«UserListResponseDto»»': {
+    /** @enum {string} */
+    code?: '200' | '401' | '400' | '501' | '500';
+    data: definitions['Page«UserListResponseDto»'];
+    message?: string;
   };
   /** Result«UserInfoResponseDto» */
   'Result«UserInfoResponseDto»': {
@@ -145,10 +161,34 @@ export interface definitions {
      * @description 用户id
      */
     id?: string;
+    /** @description 昵称 */
+    nickName?: string;
+    /** @description 手机 */
+    phone?: string;
+    /**
+     * Format: date-time
+     * @description 修改时间
+     */
+    updatedAt?: string;
+  };
+  /**
+   * UserListResponseDto
+   * @description 用户信息
+   */
+  UserListResponseDto: {
+    /**
+     * Format: date-time
+     * @description 创建时间
+     */
+    createdAt?: string;
+    /** @description 邮箱 */
+    email?: string;
     /**
      * Format: int64
-     * @description 昵称
+     * @description 用户id
      */
+    id?: string;
+    /** @description 昵称 */
     nickName?: string;
     /** @description 手机 */
     phone?: string;
@@ -667,6 +707,30 @@ export interface operations {
       /** OK */
       200: {
         schema: definitions['Result«UserInfoResponseDto»'];
+      };
+      /** Unauthorized */
+      401: unknown;
+      /** Forbidden */
+      403: unknown;
+      /** Not Found */
+      404: unknown;
+    };
+  };
+  userListUsingGET: {
+    parameters: {
+      query: {
+        /** 页码 */
+        currentPage?: number | null;
+        /** 关键字 */
+        keyWord?: string;
+        /** 分页大小 */
+        pageSize?: number | null;
+      };
+    };
+    responses: {
+      /** OK */
+      200: {
+        schema: definitions['Result«Page«UserListResponseDto»»'];
       };
       /** Unauthorized */
       401: unknown;

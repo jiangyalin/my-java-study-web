@@ -30,7 +30,22 @@ const getUserInfoById = (data: UserInfoByIdReqType): Promise<UserInfoByIdResType
   }, data)
 }
 
+export type UserListReqType = operations['userListUsingGET']['parameters']['query']
+export type UserListResType = definitions['Result«Page«UserListResponseDto»»']
+/**
+ * @description 获取用户信息列表
+ * @param {UserListReqType} data 请求参数
+ * @returns {Promise<UserListResType>} ajax
+ */
+const getUserList = (data: UserListReqType): Promise<UserListResType> => {
+  return ajax({
+    url: '/user/list',
+    method: Method.GET
+  }, data)
+}
+
 export default {
   getUserInfo,
-  getUserInfoById
+  getUserInfoById,
+  getUserList
 }
