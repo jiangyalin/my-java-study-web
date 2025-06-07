@@ -62,6 +62,12 @@ export interface paths {
   '/register': {
     post: operations['registerUsingPOST'];
   };
+  '/user/add': {
+    post: operations['userAddUsingPOST'];
+  };
+  '/user/delete': {
+    post: operations['userDeleteUsingPOST'];
+  };
   '/user/info': {
     /** 根据token获取用户信息 */
     get: operations['userInfoByTokenUsingGET'];
@@ -72,6 +78,9 @@ export interface paths {
   };
   '/user/list': {
     get: operations['userListUsingGET'];
+  };
+  '/user/update': {
+    post: operations['userUpdateUsingPOST'];
   };
 }
 
@@ -89,6 +98,11 @@ export interface definitions {
      */
     username: string;
   };
+  /**
+   * OkResponseDto
+   * @description 成功信息
+   */
+  OkResponseDto: { [key: string]: unknown };
   /** Page«UserListResponseDto» */
   'Page«UserListResponseDto»': {
     list?: definitions['UserListResponseDto'][];
@@ -123,6 +137,13 @@ export interface definitions {
      */
     username: string;
   };
+  /** Result«OkResponseDto» */
+  'Result«OkResponseDto»': {
+    /** @enum {string} */
+    code?: '200' | '401' | '400' | '501' | '500';
+    data: definitions['OkResponseDto'];
+    message?: string;
+  };
   /** Result«Page«UserListResponseDto»» */
   'Result«Page«UserListResponseDto»»': {
     /** @enum {string} */
@@ -143,6 +164,32 @@ export interface definitions {
     code?: '200' | '401' | '400' | '501' | '500';
     data: string;
     message?: string;
+  };
+  /** UserAddDto */
+  UserAddDto: {
+    /**
+     * @description 邮箱
+     * @example xxx@163.com
+     */
+    email: string;
+    /**
+     * @description 昵称
+     * @example 明日香
+     */
+    nickName?: string;
+    /**
+     * @description 手机号
+     * @example xxx
+     */
+    phone: string;
+  };
+  /** UserDeleteDto */
+  UserDeleteDto: {
+    /**
+     * @description ids
+     * @example 1
+     */
+    ids?: string;
   };
   /**
    * UserInfoResponseDto
@@ -197,6 +244,30 @@ export interface definitions {
      * @description 修改时间
      */
     updatedAt?: string;
+  };
+  /** UserUpdateDto */
+  UserUpdateDto: {
+    /**
+     * @description 邮箱
+     * @example xxx@163.com
+     */
+    email?: string;
+    /**
+     * Format: int64
+     * @description id
+     * @example 1
+     */
+    id: string;
+    /**
+     * @description 昵称
+     * @example 明日香
+     */
+    nickName?: string;
+    /**
+     * @description 手机号
+     * @example xxx
+     */
+    phone: string;
   };
 }
 
@@ -674,6 +745,50 @@ export interface operations {
       404: unknown;
     };
   };
+  userAddUsingPOST: {
+    parameters: {
+      body: {
+        /** 新增用户 */
+        userAddDto: definitions['UserAddDto'];
+      };
+    };
+    responses: {
+      /** OK */
+      200: {
+        schema: definitions['Result«UserInfoResponseDto»'];
+      };
+      /** Created */
+      201: unknown;
+      /** Unauthorized */
+      401: unknown;
+      /** Forbidden */
+      403: unknown;
+      /** Not Found */
+      404: unknown;
+    };
+  };
+  userDeleteUsingPOST: {
+    parameters: {
+      body: {
+        /** 删除用户 */
+        userDeleteDto: definitions['UserDeleteDto'];
+      };
+    };
+    responses: {
+      /** OK */
+      200: {
+        schema: definitions['Result«OkResponseDto»'];
+      };
+      /** Created */
+      201: unknown;
+      /** Unauthorized */
+      401: unknown;
+      /** Forbidden */
+      403: unknown;
+      /** Not Found */
+      404: unknown;
+    };
+  };
   /** 根据token获取用户信息 */
   userInfoByTokenUsingGET: {
     parameters: {
@@ -732,6 +847,28 @@ export interface operations {
       200: {
         schema: definitions['Result«Page«UserListResponseDto»»'];
       };
+      /** Unauthorized */
+      401: unknown;
+      /** Forbidden */
+      403: unknown;
+      /** Not Found */
+      404: unknown;
+    };
+  };
+  userUpdateUsingPOST: {
+    parameters: {
+      body: {
+        /** 编辑用户 */
+        userUpdateDto: definitions['UserUpdateDto'];
+      };
+    };
+    responses: {
+      /** OK */
+      200: {
+        schema: definitions['Result«UserInfoResponseDto»'];
+      };
+      /** Created */
+      201: unknown;
       /** Unauthorized */
       401: unknown;
       /** Forbidden */

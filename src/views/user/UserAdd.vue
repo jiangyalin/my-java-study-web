@@ -26,112 +26,34 @@
           <div class="u-row">
             <div class="u-col">
               <el-form-item
-                label="工序"
-                prop="OpId"
-                data-item
+                label="昵称"
+                prop="nickName"
               >
-                <el-select
-                  v-model="ruleForm.OpId"
-                  placeholder="请选择工序"
-                  clearable
-                  filterable
-                >
-                  <el-option
-                    v-for="item in filter.operationOptions.value"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  />
-                </el-select>
-              </el-form-item>
-            </div>
-            <div class="u-col">
-              <el-form-item
-                label="班组"
-                prop="TeamId"
-                data-item
-              >
-                <el-select
-                  v-model="ruleForm.TeamId"
-                  clearable
-                  collapseTags
-                  placeholder="请选择班组"
-                  @change="asspersonsOptions.filterOptionsValue({ Id: ruleForm.TeamId });ruleForm.PersonCode = ''"
-                >
-                  <el-option
-                    v-for="item in filter.teamOptions.value"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value"
-                  />
-                </el-select>
-              </el-form-item>
-            </div>
-          </div>
-          <div class="u-row">
-            <div class="u-col">
-              <el-form-item
-                label="人员"
-                prop="PersonCode"
-              >
-                <el-select
-                  v-model="ruleForm.PersonCode"
-                  clearable
-                  collapseTags
-                  :disabled="!ruleForm.TeamId"
-                  placeholder="请选择人员"
-                >
-                  <el-option
-                    v-for="item in filter.asspersonsOptions.value"
-                    :key="item.value"
-                    :label="'['+item.value+']'+item.label"
-                    :value="item.value"
-                  />
-                </el-select>
-              </el-form-item>
-            </div>
-            <div class="u-col">
-              <el-form-item
-                label="培训日期"
-                prop="TrainDate"
-              >
-                <el-date-picker
-                  v-model="ruleForm.TrainDate"
-                  type="date"
-                  placeholder="请选择培训日期"
+                <el-input
+                  v-model="ruleForm.nickName"
+                  placeholder="请输入昵称"
                 />
               </el-form-item>
             </div>
-          </div>
-          <div class="u-row">
             <div class="u-col">
               <el-form-item
-                label="熟练程度"
-                prop="Proficiency"
+                label="邮箱"
+                prop="email"
               >
-                <div class="m-it-gp">
-                  <MInputNumber
-                    v-model="ruleForm.Proficiency"
-                    :min="0"
-                    :max="100"
-                    :step="0.01"
-                    placeholder="请输入熟练程度"
-                    :size="skinStore.size"
-                  ></MInputNumber>
-                  <p class="u-suffix">%</p>
-                </div>
+                <el-input
+                  v-model="ruleForm.email"
+                  placeholder="请输入邮箱"
+                />
               </el-form-item>
             </div>
             <div class="u-col">
               <el-form-item
-                label="备注"
-                prop="Remark"
+                label="手机"
+                prop="phone"
               >
                 <el-input
-                  v-model="ruleForm.Remark"
-                  placeholder="请输入备注"
-                  showWordLimit
-                  type="textarea"
+                  v-model="ruleForm.phone"
+                  placeholder="请输入手机"
                 />
               </el-form-item>
             </div>
@@ -165,114 +87,106 @@ import { ref, computed, reactive } from 'vue'
 import api from '@/api'
 import { ElMessage } from 'element-plus'
 import { useSkinStore } from '@/stores/skin/counter'
-import type { Filter } from '@/typings/interface'
-import { useAsspersonsOptions, useOperationOptions, useTeamOptions, useWcListOptions } from '@/hook/useOptions'
-import type { EmpSkillFormType, EmpSkillListItemType } from '@/views/console/empSkill/empSkillType'
+import type { UserItemType } from '@/views/user/userType'
 
 const skinStore = useSkinStore()
 
 const props = withDefaults(
   defineProps<{
-    formId?: string,
-    disabled:boolean
+    disabled: boolean
   }>(),
   {
-    formId: '',
     disabled: false
   }
 )
-const teamOptionsOptions = useTeamOptions()
-const asspersonsOptions = useAsspersonsOptions()
-const filter: Filter = {
-  wcOptions: useWcListOptions(),
-  asspersonsOptions: asspersonsOptions.options,
-  teamOptions: teamOptionsOptions.options,
-  operationOptions: useOperationOptions()
-}
 const emit = defineEmits(['submit'])
-const isAddMode = computed(() => !ruleForm.Id)
+const isAddMode = computed(() => !ruleForm.id)
 const loading = ref(false)
 const visible = ref<boolean>(false)
 const title = computed(() => {
-  return isAddMode.value ? '新增员工技能培训记录' : props.disabled ? '查看新增员工技能培训记录' : '编辑新增员工技能培训记录'
+  return isAddMode.value ? '新增用户' : props.disabled ? '查看用户' : '编辑用户'
 })
-const ruleForm: EmpSkillFormType = reactive<EmpSkillFormType>({
-  /** @description ID 编辑可传 */
-  Id: '',
-  /** @description 工序ID */
-  OpId: '',
-  /** @description 班组ID */
-  TeamId: '',
-  // /** @description 班组名称 */
-  // TeamName: '',
-  /** @description 人员编码 */
-  PersonCode: '',
-  // /** @description 人员名称 */
-  // PersonName: '',
-  /** @description 培训日期 */
-  TrainDate: '',
-  /** @description 熟练程度 */
-  Proficiency: null,
-  /** @description 备注说明 */
-  Remark: ''
+const ruleForm: UserItemType = reactive<UserItemType>({
+  /** @description 创建时间 */
+  createdAt: '',
+  /** @description 邮箱 */
+  email: '',
+  /** @description 用户id */
+  id: '',
+  /** @description 昵称 */
+  nickName: '',
+  /** @description 手机 */
+  phone: '',
+  /** @description 修改时间 */
+  updatedAt: ''
 })
 const rules = reactive({
-  OpId: [{ required: true, message: '请选择工序', trigger: 'change' }],
-  TeamId: [{ required: true, message: '请选择班组', trigger: 'change' }],
-  PersonCode: [{ required: true, message: '请选择人员', trigger: 'change' }],
-  TrainDate: [{ required: true, message: '请选择培训日期', trigger: 'change' }],
-  Proficiency: [{ required: true, message: '请输入熟练程度', trigger: 'change' }]
+  email: [{ required: true, message: '请输入邮箱', trigger: 'change' }],
+  nickName: [{ required: false, message: '请输入昵称', trigger: 'change' }],
+  phone: [{ required: true, message: '请输入手机', trigger: 'change' }]
 })
-const open = (form: EmpSkillListItemType | null = null) => {
+const open = async (id?: string) => {
   visible.value = true
-  if (!form) return
-  ruleForm.Id = form.Id || ''
-  ruleForm.OpId = form.OpId || ''
-  ruleForm.TeamId = form.TeamId || ''
-  // ruleForm.TeamName = form.TeamName || ''
-  ruleForm.PersonCode = form.PersonCode || ''
-  // ruleForm.PersonName = form.PersonName || ''
-  ruleForm.TrainDate = form.TrainDate || ''
-  ruleForm.Proficiency = form.Proficiency as number
-  ruleForm.Remark = form.Remark || ''
+  if (!id) return
+  ruleForm.id = id || ''
+  await getInfo()
 }
+const getInfo = async () => {
+  const res = await api.user.getUserInfoById({
+    id: ruleForm.id
+  })
+  ruleForm.createdAt = res.data.createdAt ?? ''
+  ruleForm.email = res.data.email ?? ''
+  ruleForm.nickName = res.data.nickName ?? ''
+  ruleForm.phone = res.data.phone ?? ''
+  ruleForm.updatedAt = res.data.updatedAt ?? ''
+}
+const ruleFormRef = ref<any | null>(null)
 const empty = () => {
   visible.value = false
-  ruleForm.Id = ''
-  ruleForm.OpId = ''
-  ruleForm.TeamId = ''
-  // ruleForm.TeamName = ''
-  ruleForm.PersonCode = ''
-  // ruleForm.PersonName = ''
-  ruleForm.TrainDate = ''
-  ruleForm.Proficiency = null
-  ruleForm.Remark = ''
+  const ruleFormValidate: any = ruleFormRef.value
+  if (!ruleFormValidate) return false
+  ruleFormValidate.resetFields()
+  ruleForm.createdAt = ''
+  ruleForm.email = ''
+  ruleForm.id = ''
+  ruleForm.nickName = ''
+  ruleForm.phone = ''
+  ruleForm.updatedAt = ''
 }
 const submit = async () => {
-  api.empskill.postEmpskillSave({
-    /** @description ID 编辑可传 */
-    Id: ruleForm.Id,
-    /** @description 工序ID */
-    OpId: ruleForm.OpId,
-    /** @description 班组ID */
-    TeamId: ruleForm.TeamId,
-    /** @description 班组名称 */
-    TeamName: filter.teamOptions.value.find(item => item.value === ruleForm.TeamId)?.label as string || '',
-    /** @description 人员编码 */
-    PersonCode: ruleForm.PersonCode,
-    /** @description 人员名称 */
-    PersonName: filter.asspersonsOptions.value.find(item => item.value === ruleForm.PersonCode)?.label as string || '',
-    /** @description 培训日期 */
-    TrainDate: ruleForm.TrainDate,
-    /** @description 熟练程度 */
-    Proficiency: (ruleForm.Proficiency || 0) / 100,
-    /** @description 备注说明 */
-    Remark: ruleForm.Remark
-  }).then(res => {
-    ElMessage.success(res.msg)
+  const ruleFormValidate: any = ruleFormRef.value
+  if (!ruleFormValidate) return
+  const valid = await ruleFormValidate.validate()
+  if (!valid) return false
+  try {
+    if (!ruleForm.id) {
+      await api.user.postUserAdd({
+        /** 邮箱 */
+        email: ruleForm.email,
+        /** 昵称 */
+        nickName: ruleForm.nickName,
+        /** 手机号 */
+        phone: ruleForm.phone
+      })
+      ElMessage.success('新增成功')
+    }
+    if (ruleForm.id) {
+      await api.user.postUserUpdate({
+        id: ruleForm.id,
+        /** 邮箱 */
+        email: ruleForm.email,
+        /** 昵称 */
+        nickName: ruleForm.nickName,
+        /** 手机号 */
+        phone: ruleForm.phone
+      })
+      ElMessage.success('编辑成功')
+    }
     emit('submit')
+  } finally {
     visible.value = false
-  })
+  }
 }
 defineExpose({
   open
@@ -284,12 +198,6 @@ defineExpose({
   position: relative;
   //padding: 24px;
   box-sizing: border-box;
-
-  &[data-edit-pwd-mode='true'] {
-    .u-row .u-col {
-      width: 100%;
-    }
-  }
 }
 
 .u-tt {
@@ -301,9 +209,10 @@ defineExpose({
 
 .u-row {
   display: flex;
+  flex-wrap: wrap;
 
   .u-col {
-    width: 100%;
+    width: 50%;
   }
 
   .u-col-flex {

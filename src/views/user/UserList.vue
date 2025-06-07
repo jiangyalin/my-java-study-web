@@ -128,7 +128,6 @@
     </div>
 
     <UserAdd
-      v-if="0"
       ref="userAddRef"
       @submit="toPage()"
     ></UserAdd>
@@ -138,7 +137,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import api from '@/api'
-import { ElMessageBox } from 'element-plus'
+import { ElMessageBox, ElMessage } from 'element-plus'
 import { useRemainingSpace, useTableConfig, useFormInline } from 'br-dionysus'
 import { useSkinStore } from '@/stores/skin/counter'
 import dayjs from 'dayjs'
@@ -228,24 +227,24 @@ const add = () => {
 
 const edit = (id: string) => {
   if (!userAddRef.value) return
-  userAddRef.value.open(tableData.value.find(item => item.id === id))
+  userAddRef.value.open(id)
 }
 
-const remove = () => {
+const remove = (ids: string[]) => {
   ElMessageBox.confirm('是否确定删除数据', '警告', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
     type: 'warning'
   }).then(() => {
-    // api.empskill.postEmpskillDelete({
-    //   Ids: ids
-    // }).then(() => {
-    //   ElMessage({
-    //     message: '操作成功',
-    //     type: 'success'
-    //   })
-    //   toPage()
-    // })
+    api.user.postUserDelete({
+      ids: ids.join(',')
+    }).then(() => {
+      ElMessage({
+        message: '操作成功',
+        type: 'success'
+      })
+      toPage()
+    })
   })
 }
 
